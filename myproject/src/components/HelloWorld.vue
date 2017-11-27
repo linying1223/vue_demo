@@ -20,6 +20,18 @@
 				</el-tabs>
 			</el-tab-pane>
 		</el-tabs>
+
+		<div style="margin-top: 15px;">
+			<el-input placeholder="请输入内容" v-model="input5" class="input-with-select">
+				<el-select v-model="select" slot="prepend" v-on:change="getType($event)" id="typeSelect" style="width: 150px;">
+					<el-option label="餐厅名" value="canguang"></el-option>
+					<el-option label="订单号" value="orderNo"></el-option>
+					<el-option label="用户电话" value="phone"></el-option>
+				</el-select>
+				<el-button slot="append" icon="el-icon-search"></el-button>
+			</el-input>
+		</div>
+
 	</div>
 </template>
 
@@ -28,6 +40,9 @@
 		name: 'HelloWorld',
 		data() {
 			return {
+
+				input5: '',
+				select: 'phone',
 				activeNames: 'key0',
 				activeName2: 'keys0',
 				show_flag: false,
@@ -64,6 +79,11 @@
 			//			}
 			fn_showFlag: function() {
 				this.show_flag = true;
+			},
+			getType(event) {
+				console.log(event);
+				//				var typeSelect =thisE.label;
+				//				alert(typeSelect)
 			}
 		}
 	}
@@ -101,5 +121,17 @@
 	
 	.el-icon-arrow-down {
 		font-size: 12px;
+	}
+	
+	.el-select .el-input {
+		width: 150px;
+	}
+	
+	.input-with-select .el-input-group__prepend {
+		background-color: #fff;
+	}
+	
+	.el-input-group__prepend>>>div.el-select .el-input__inner {
+		width: 150px;
 	}
 </style>
