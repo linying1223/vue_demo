@@ -22,7 +22,6 @@
 		</el-tabs>
 
 		<div style="margin-top: 15px;">
-			<el-input placeholder="请输入内容" v-model="input5" class="input-with-select">
 				<el-select v-model="select" slot="prepend" v-on:change="getType($event)" id="typeSelect" style="width: 150px;">
 					<el-option label="餐厅名" value="canguang"></el-option>
 					<el-option label="订单号" value="orderNo"></el-option>
@@ -31,7 +30,10 @@
 				<el-button slot="append" icon="el-icon-search"></el-button>
 			</el-input>
 		</div>
-
+		
+		<span>我是TK,我的爱好是TK</span>
+		<span>小明是我的TK,我们的关系TK</span>
+		<span>我是TK,我的爱好是TK</span>
 	</div>
 </template>
 

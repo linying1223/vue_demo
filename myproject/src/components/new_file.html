@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script type="text/javascript">
+		var jsonData=[{
+                "tm_Title": "CSS的单位中，设定元素的长度或宽度与父元素字体大小相关的单位是TK与html文档元素大小相关的单位是TK。", 
+                "sjd_Id": 265, 
+                "tmAnswers": [{
+                        "tks_Id": 202, 
+                        "tks_Tk_Id": 432, 
+                        "tks_Score": 5
+                    }, 
+                    {
+                        "tks_Id": 203, 
+                        "tks_Tk_Id": 433, 
+                        "tks_Score": 3
+                    }]
+                
+                },{
+                "tm_Title": "CSS的单位中，设定元素的长度或宽度与父元素字体大小相关的单位是TK与html文档元素大小相关的单位是。", 
+                "sjd_Id": 265, 
+                "tmAnswers": [{
+                        "tks_Id": 202, 
+                        "tks_Tk_Id": 432, 
+                        "tks_Score": 8
+                    }
+                    ]
+                
+                }];
+		
+		
+		for(var i=0;i<jsonData.length;i++){
+			var tmpTkt= replaceTktTitle(jsonData[i]);
+			jsonData[i]=tmpTkt;
+		}
+		
+		function replaceTktTitle(tkt){
+			
+			var tmpTitle=tkt.tm_Title;
+			var answerSize=tkt.tmAnswers.length;
+			
+			//有多少个答案循环替换多少次（这里不是replaceAll 而是简单的replace）
+			for(var i=0;i<answerSize;i++){
+				//同时替换input和正确答案
+				tmpTitle=tmpTitle.replace("TK","<input name='' class='tk' value='"+tkt.tmAnswers[i].tks_Score+"'/>");
+			}
+			//替换完成后，覆盖原来的title
+			tkt.tm_Title=tmpTitle;
+	
+			return tkt; 
+		}
+		
+		console.log(jsonData);
+		
+		
+		
+	</script>
+	<body>
+	</body>
+</html>
